@@ -61,14 +61,13 @@ export default function ThreePieceTicTacToe() {
 
     if (newWinner) {
       setWinner(newWinner);
-      clearInterval(timerRef.current);
+      
     } else {
       setTurn(turn === "X" ? "O" : "X");
     }
   };
 
   const resetGame = () => {
-    clearInterval(timerRef.current);
     setBoard(emptyBoard);
     setHistory({ X: [], O: [] });
     setWinner(null);
@@ -79,7 +78,7 @@ export default function ThreePieceTicTacToe() {
   return (
     <div className="flex flex-col items-center gap-6 p-8 bg-gradient-to-br from-blue-100 to-indigo-200 min-h-screen relative">
       <h1 className="text-4xl font-extrabold text-gray-800 drop-shadow-md">
-        3‑Piece Tic Tac Toe
+        Tic Tac Shift
       </h1>
 
       {/* Timer Display - Top Right Corner */}
