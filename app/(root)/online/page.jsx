@@ -24,8 +24,6 @@ export default function OnlinePage() {
     onWSMessage((data) => {
       console.log("WS:", data);
 
-      // Store ID when received
-
       if (data.type === "room_created") {
         setRoom(data.code);
         setStatus(`Room created: ${data.code}`);
@@ -50,7 +48,7 @@ export default function OnlinePage() {
       // Handle chat messages
       if (data.type === "room_message") {
         console.log("There");
-        const mine = data.senderId === data.myId; // Use data from the server response
+        const mine = data.senderId === data.myId; 
         setMessages((prev) => [
           ...prev,
           {
@@ -64,13 +62,6 @@ export default function OnlinePage() {
 
     return () => ws?.close();
   }, []);
-
-  const sendMessage = () => {
-    if (!msg.trim() || !room) return;
-
-    sendToRoom(room, { text: msg });
-    setMsg("");
-  };
 
   return (
     <>

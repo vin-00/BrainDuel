@@ -1,4 +1,3 @@
-// components/ChatSidebar.jsx
 "use client";
 
 import { useEffect, useState, useRef } from 'react';
@@ -7,43 +6,33 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Send, MessageSquare } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
-
-// Assuming these functions are correctly defined in your lib/ws.js or equivalent
 import {
-  connectWS,
-  onWSMessage,
   sendToRoom,
-  joinRoom, // We'll call joinRoom when the component mounts
 } from "@/lib/ws";
 
 const ChatSidebar = ({ room , messages , setMessages }) => {
   
   const [msg, setMsg] = useState("");
-  // Use JSDoc types to avoid JSX/TSX generic parsing in a .jsx file
   const scrollRef = useRef(/** @type {HTMLDivElement | null} */ (null));
 
-  // Automatically scroll to the bottom when messages change
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages]);
 
-  // WebSocket Connection and Event Listener Setup
   
   const sendMessage = () => {
     if (!msg.trim() || !room) return;
 
-    // Send message via WebSocket
     sendToRoom(room, { text: msg });
     
-    // Clear input field
     setMsg("");
   };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      e.preventDefault(); // Prevent default form submission if applicable
+      e.preventDefault(); 
       sendMessage();
     }
   };

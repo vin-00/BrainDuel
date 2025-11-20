@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { games } from "@/constants/constants"; // Assuming this is defined
-import GameCard from "@/components/GameCard"; // Assuming this is defined
+import { games } from "@/constants/constants"; 
+import GameCard from "@/components/GameCard"; 
 
 
 export default function BrainDuelPage() {
@@ -15,7 +15,6 @@ export default function BrainDuelPage() {
   
   const STORAGE_KEY = "brainDuelUsername";
 
-  // ... (Username useEffect and submitUsername functions are unchanged) ...
   useEffect(() => {
 
     try {
@@ -37,7 +36,7 @@ export default function BrainDuelPage() {
     e?.preventDefault();
     const trimmed = input.trim();
     if (trimmed.length < 1) {
-      setRoomError("Please enter a name."); // Using roomError state for modal error
+      setRoomError("Please enter a name."); 
       return;
     }
     try {
@@ -63,7 +62,7 @@ export default function BrainDuelPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-8 relative">
-      {/* Top-right avatar / username (Unchanged) */}
+      {/* Top-right avatar / username */}
       {username && (
         <div className="absolute top-6 right-6 z-30">
           <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-full shadow-md">
@@ -111,7 +110,7 @@ export default function BrainDuelPage() {
         </div>
       </div>
 
-      {/* Available Games Section (Unchanged) */}
+      {/* Available Games Section */}
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-semibold text-gray-800 text-center mb-6 border-b-2 border-gray-300 pb-2">
           Explore Available Games
@@ -129,7 +128,7 @@ export default function BrainDuelPage() {
         </div>
       </div>
 
-      {/* -------------------- 1. Username Modal (Unchanged) -------------------- */}
+      {/* -------------------- 1. Username Modal -------------------- */}
       {showUsernameModal && (
         <div className="fixed inset-0 z-40 flex items-center justify-center">
           <div className="absolute inset-0 bg-black/50" aria-hidden />

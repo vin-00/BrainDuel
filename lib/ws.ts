@@ -1,4 +1,3 @@
-// lib/ws.ts
 let socket: WebSocket | null = null;
 let myId: number | null = null;
 let messageHandlers: ((data: any) => void)[] = []; // Array to store multiple handlers
