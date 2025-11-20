@@ -28,7 +28,10 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
-  ],
+    "**/*.mts",
+    "app/(root)/game1/page.jsx",
+    "app/(root)/game2/page.jsx",
+    "app/(root)/local-play/page.jsx"
+, "app/(root)/online/[id]/page.jsx", "app/(root)/online/page.jsx", "app/(root)/page.tsx", "components/ChatSidebar.jsx"  ],
   "exclude": ["node_modules"]
 }
